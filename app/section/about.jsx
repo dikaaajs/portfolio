@@ -25,15 +25,22 @@ export default function About() {
   }, []);
 
   return (
-    <section className="h-screen bg-black relative" ref={aboutRef}>
+    <section className="h-screen relative" ref={aboutRef}>
+      {/* bg */}
+      <img
+        src="/persona-bg.jpg"
+        className="absolute w-full h-full -z-50"
+        alt=""
+      />
+
       {/* headline */}
-      <div className="pt-[50px] pl-[20px] flex gap-[10px] items-center text-white">
+      <div className="pt-[50px] pl-[20px] flex gap-[10px] items-center text-white z-20">
         <img src="/putih-kiriatas.svg" alt="" />
-        <h1 className={`font-outfit font-medium text-[1.3rem]`}>about.js</h1>
+        <h1 className={`font-outfit font-medium text-[1.3rem]`}>About.js</h1>
       </div>
 
       {/* nav */}
-      <div className="text-slate-200 w-fit ml-[20px] mt-[20px] font-outfit">
+      {/* <div className="text-slate-200 w-fit ml-[20px] mt-[20px] font-outfit">
         <ul>
           <li
             className={`list-about ${
@@ -51,16 +58,8 @@ export default function About() {
           >
             education
           </li>
-          <li
-            className={`list-about ${
-              active === "repository" ? "list-about-active" : ""
-            }`}
-            onClick={() => setActive("repository")}
-          >
-            repository
-          </li>
         </ul>
-      </div>
+      </div> */}
 
       <img
         src="/LINE-white.svg"
@@ -70,34 +69,33 @@ export default function About() {
         }`}
       />
 
-      {/* about me */}
-      {active === "about me" && (
-        <>
-          <div
-            className={`py-[20px] px-[20px] bg-white w-[50%] font-outfit rounded-[5px] absolute transform -translate-x-1/2 left-1/2 pt-[80px] ${move}`}
-          >
-            <div className="absolute -top-[40px] left-[40px] flex gap-[10px] items-center">
-              <img
-                src="/me.jpg"
-                className="w-[100px] shadow-[5px_5px_0px_0px_rgba(109,40,217)] rounded-[3px] "
-                alt=""
-              />
-            </div>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Excepturi fuga ad, labore, cum quaerat commodi iusto in sed
-              possimus placeat quidem ipsam a doloremque hic et earum nostrum
-              quibusdam cupiditate.
-            </p>
-          </div>
-        </>
-      )}
+      <img
+        src="/ngecit.svg"
+        className={`lg:mt-[5%] mt-[5px] scale-[.8] lg:scale-90 xl:scale-100 ml-[10px]`}
+        alt=""
+      />
 
-      {active === "repository" && (
-        <div>
-          <h1></h1>
-        </div>
-      )}
+      {/* <div className="relative w-full xl:w-[80%] h-[200px] mt-[10%]">
+        <img
+          src="/about-persona.svg"
+          className={`absolute top-0 2xl:left-[10%]`}
+          alt=""
+        />
+        <img
+          src="about-dialog.svg"
+          className={`absolute top-[80%] left-[30%]`}
+        />
+        <img
+          src="/about-nama.svg"
+          className={`absolute top-[50%] left-[25%]`}
+          alt=""
+        />
+        <img
+          src="/about-dialog2.svg"
+          className={`absolute top-[80%] right-[15%] -z-10`}
+          alt=""
+        />
+      </div> */}
     </section>
   );
 }

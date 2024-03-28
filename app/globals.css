@@ -17,6 +17,15 @@
     src: url(font/Outfit-VariableFont_wght.ttf);
 }
 
+@font-face {
+    font-family: impact;
+    src: url(font/Outfit-VariableFont_wght.ttf);
+}
+
+.font-impact {
+    font-family: impact;
+}
+
 .font-nato-sans {
     font-family: nato-sans;
 }
