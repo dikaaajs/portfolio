@@ -84,7 +84,7 @@ export default function Repo() {
       <div className="relative lg:mt-[10%] lg:mx-[100px] mx-[40px] mt-[60px]">
         <img
           src="/Vector 2 (1).svg"
-          className="opacity-70 absolute lg:left-[-100px] lg:bottom-[-80px] left-[-40px] bottom-0 z-10 lg:w-fit h-[250px]"
+          className="opacity-70 absolute lg:left-[-100px] lg:bottom-[-80px] left-[-40px] bottom-0 z-10 lg:w-fit h-[250px] lg:h-[400px]"
         />
 
         {/* repository */}
