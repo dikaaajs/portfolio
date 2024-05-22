@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Main from "./section/main";
 import About from "./section/about";
 import Repo from "./section/repo";
+import Contact from "./section/contact";
 
 export default function Home() {
   const [move, setMove] = useState(false);
@@ -89,7 +90,11 @@ export default function Home() {
             src="/arrow-nav.png"
             className={` active:opacity-50 w-[15px]`}
             alt=""
-            onClick={() => setSection(section - 1)}
+            onClick={() => {
+              if(section === 0){
+                return
+              }
+              setSection(section - 1)}}
           />
         </button>
         <ul className="text-center h-[35px]">
@@ -103,6 +108,9 @@ export default function Home() {
             className={` rotate-180 active:opacity-50 w-[15px]`}
             alt=""
             onClick={() => {
+              if (section === 3) {
+                return;
+              }
               setSection(section + 1);
             }}
           />
@@ -122,6 +130,9 @@ export default function Home() {
 
         {/* repository */}
         <Repo />
+
+        {/* contact */}
+        <Contact />
       </main>
     </div>
   );

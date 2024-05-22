@@ -71,7 +71,7 @@ export default function About() {
 
       <img
         src="/ngecit.svg"
-        className={`lg:mt-[5%] mt-[5px] scale-[.8] lg:scale-90 xl:scale-100 ml-[10px]`}
+        className={`scale-[.8] lg:scale-90 xl:scale-100 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}
         alt=""
       />
 

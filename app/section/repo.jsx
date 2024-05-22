@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 const dataRepo = [
@@ -9,6 +10,7 @@ const dataRepo = [
     p: "Simply put, this website is useful for helping Valorant game players. You can check the details on the button below",
     date: "01/01/2023",
     img: "/valoin.png",
+    repo: "https://github.com/dikaaajs/valoin",
   },
   {
     headline: "Election Of Osis",
@@ -16,6 +18,7 @@ const dataRepo = [
     p: "Website for voting for the new student council president. (source code is private)",
     date: "13/08/2023",
     img: "/pemilihan.png",
+    repo: "https://github.com/dikaaajs/voting-ketos-ui",
   },
   {
     headline: "Web App Attendance",
@@ -23,6 +26,7 @@ const dataRepo = [
     p: "A website that specialize for taking attendance for an event",
     date: "06/08/2023",
     img: "/absensi.png",
+    repo: "https://github.com/dikaaajs/absensi2",
   },
   {
     headline: "Software for GAUSS",
@@ -30,6 +34,7 @@ const dataRepo = [
     p: "A software to display output from a tool called GAUSS. This web will manage some data from GAUSS into data that can be eas to read.",
     date: "18/04/2023",
     img: "/gaus.png",
+    repo: "https://github.com/dikaaajs/gauss-build",
   },
   {
     headline: "Company profile web",
@@ -37,6 +42,7 @@ const dataRepo = [
     p: "My first company website that was made without using a framework and only using html, css, and javascript only",
     date: "26/09/2022",
     img: "/ktresna.png",
+    repo: "https://github.com/dikaaajs/K-Tresna",
   },
 ];
 
@@ -84,7 +90,7 @@ export default function Repo() {
       <div className="relative lg:mt-[10%] lg:mx-[100px] mx-[40px] mt-[60px]">
         <img
           src="/Vector 2 (1).svg"
-          className="opacity-70 absolute lg:left-[-100px] lg:bottom-[-80px] left-[-40px] bottom-0 z-10 lg:w-fit h-[250px] lg:h-[400px]"
+          className="opacity-70 absolute lg:left-[-100px] lg:bottom-[-80px] xl:bottom-[-100px] left-[-40px] bottom-0 z-10 lg:w-fit h-[250px] xl:h-[500px]"
         />
 
         {/* repository */}
@@ -97,8 +103,8 @@ export default function Repo() {
 
           {/* left side */}
           <div className="flex flex-col gap-[20px]">
-            <div className="lg:w-[400px] lg:h-[250px] w-[250px] h-[150px] relative rounded-[20px] bg-white overflow-hidden z-20">
-              <img src={`${dataRepo[activeRepo].img}`} alt="" />
+            <div className="lg:w-[400px] xl:w-[500px] lg:h-[250px] xl:h-[300px] w-[250px] h-[150px] relative rounded-[20px] bg-white overflow-hidden z-20">
+              <img src={`${dataRepo[activeRepo].img}`} className="w-full" />
               <p className="absolute bottom-0 z-50 bg-zinc-800 text-[#ffffff83] text-[.7rem] lg:text-[1rem] text-center font-impact font-bold italic w-full lg:py-[5px] py-[2px]">
                 {dataRepo[activeRepo].headline}
               </p>
@@ -106,7 +112,7 @@ export default function Repo() {
           </div>
 
           {/* right side */}
-          <div className="flex flex-col gap-[10px] justify-center flex-wrap text-[.7rem]">
+          <div className="flex flex-col gap-[10px] justify-center flex-wrap text-[.7rem] lg:text-xl">
             {/* tag */}
             <div className="flex !justify-start gap-[20px] font-outfit">
               {dataRepo[activeRepo].tag.map((i, idx) => {
@@ -122,8 +128,16 @@ export default function Repo() {
             </div>
 
             {/* desk */}
-            <div>
+            <div className="flex flex-col gap-5">
               <p className="font-medium">{dataRepo[activeRepo].p}</p>
+              <Link
+                href={dataRepo[activeRepo].repo}
+                target="_blank"
+                className="py-2.5 flex items-center gap-[5px] font-outfit px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 w-fit"
+              >
+                Repository{" "}
+                <img src="github.png" className="w-5 inline" alt="" />
+              </Link>
             </div>
           </div>
         </div>
