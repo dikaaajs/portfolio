@@ -5,6 +5,15 @@ import { useEffect, useRef, useState } from "react";
 
 const dataRepo = [
   {
+    headline: "Election of osis II",
+    tag: ["next js", "mongodb", "fullstack"],
+    p: "Website for voting for the new student council president. (source code is private)",
+    date: "10/06/2024",
+    img: "/osis.png",
+    repo: "https://github.com/dikaaajs/valoin",
+    teachStack: ["mongodb", "nextjs", "tailwind"],
+  },
+  {
     headline: "valoin - website for find lineup valorant",
     tag: ["next js", "mongodb", "fullstack"],
     p: "Simply put, this website is useful for helping Valorant game players. You can check the details on the button below",
@@ -14,9 +23,9 @@ const dataRepo = [
     teachStack: ["mongodb", "nextjs", "tailwind"],
   },
   {
-    headline: "Election Of Osis",
+    headline: "Election Of Osis I",
     tag: ["react js", "mongodb", "express js"],
-    p: "Website for voting for the new student council president. (source code is private)",
+    p: "Website for voting for the new student council president.",
     date: "13/08/2023",
     img: "/pemilihan.png",
     repo: "https://github.com/dikaaajs/voting-ketos-ui",

@@ -40,14 +40,15 @@ export default function Home() {
               phone detected
             </h1>
             <p className="text-center font-outfit">
-              rotate your phone to access this website
+              this website is not compatible for mobile. use website with mobile
+              responsive
             </p>
-            <button
-              className="font-outfit py-[3px] px-[10px] bg-blue-500 text-white rounded-md mx-auto block"
-              onClick={() => setWarning(false)}
+            <a
+              className="font-outfit py-[3px] px-[10px] bg-blue-500 text-white rounded-md mx-auto w-fit block"
+              href="https://dikaaajs.github.io/"
             >
-              ok
-            </button>
+              go
+            </a>
           </div>
         </div>
       )}
@@ -55,7 +56,7 @@ export default function Home() {
       {/* dialog */}
       <div
         className={`absolute h-screen w-screen z-50 bg-[#1f1f1fd2] ${
-          dialog ? "" : "hidden"
+          dialog && !warning ? "" : "hidden"
         }`}
       >
         <div className="w-[300px] bg-white py-[15px] px-[20px] rounded-md absolute bottom-10 right-[150px]">
