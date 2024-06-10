@@ -11,6 +11,7 @@ const dataRepo = [
     date: "01/01/2023",
     img: "/valoin.png",
     repo: "https://github.com/dikaaajs/valoin",
+    teachStack: ["mongodb", "nextjs", "tailwind"],
   },
   {
     headline: "Election Of Osis",
@@ -19,6 +20,7 @@ const dataRepo = [
     date: "13/08/2023",
     img: "/pemilihan.png",
     repo: "https://github.com/dikaaajs/voting-ketos-ui",
+    teachStack: ["tailwind", "mongodb", "express"],
   },
   {
     headline: "Web App Attendance",
@@ -27,6 +29,7 @@ const dataRepo = [
     date: "06/08/2023",
     img: "/absensi.png",
     repo: "https://github.com/dikaaajs/absensi2",
+    teachStack: ["react", "tailwind", "mongodb"],
   },
   {
     headline: "Software for GAUSS",
@@ -35,6 +38,7 @@ const dataRepo = [
     date: "18/04/2023",
     img: "/gaus.png",
     repo: "https://github.com/dikaaajs/gauss-build",
+    teachStack: ["react", "mongodb", "express"],
   },
   {
     headline: "Company profile web",
@@ -43,6 +47,7 @@ const dataRepo = [
     date: "26/09/2022",
     img: "/ktresna.png",
     repo: "https://github.com/dikaaajs/K-Tresna",
+    teachStack: ["html", "css", "js"],
   },
 ];
 
@@ -79,6 +84,7 @@ export default function Repo() {
         </h1>
       </div>
 
+      {/* absolute */}
       <img
         src="/LINE-white.svg"
         alt=""
@@ -86,23 +92,43 @@ export default function Repo() {
           !move ? "h-0" : "h-[100hv]"
         }`}
       />
+      <img
+        src="/Vector 2 (1).svg"
+        className="opacity-70 absolute lg:left-[-100px] lg:bottom-[80px] xl:bottom-[100px] left-[-40px] bottom-0 z-10 lg:w-fit lg:h-[350px] h-[250px] xl:h-[500px]"
+      />
 
-      <div className="relative lg:mt-[10%] lg:mx-[100px] mx-[40px] mt-[60px]">
-        <img
-          src="/Vector 2 (1).svg"
-          className="opacity-70 absolute lg:left-[-100px] lg:bottom-[-80px] xl:bottom-[-100px] left-[-40px] bottom-0 z-10 lg:w-fit h-[250px] xl:h-[500px]"
-        />
+      {/* navigasi */}
+      <nav className="flex justify-center pt-[30px] gap-[10px] absolute bottom-[100px] transform left-1/2 -translate-x-1/2">
+        {dataRepo.map((i, idx) => {
+          return (
+            <button
+              key={idx}
+              onClick={() => setactiveRepo(idx)}
+              className={`w-[20px] h-[20px]  rounded-full border-[4px] ${
+                activeRepo === idx
+                  ? "border-zinc-500 bg-[#BBFF1A]"
+                  : "border-black bg-slate-600"
+              } `}
+            ></button>
+          );
+        })}
+      </nav>
 
+      <div className="relative">
         {/* repository */}
-        <div className="flex gap-[20px] ">
+        <div className="flex gap-[20px] lg:mt-[10%] lg:mx-[100px] mx-[40px] mt-[60px]">
           {/* nomor */}
-          <div className="absolute font-impact font-extrabold lg:right-[100px] lg:top-[-100px] top-[0px] right-[0px] lg:leading-[60px] leading-[30px] text-right">
-            <h1 className="text-[1rem] lg:text-[2rem] uppercase">project</h1>
-            <h1 className="text-[1.5rem] lg:text-[5rem]">0{activeRepo + 1}</h1>
+          <div className="absolute font-impact font-extrabold lg:right-[100px] lg:top-[-100px] top-[0px] right-[0px] lg:leading-[45px] xl:leading-[60px] leading-[30px] text-right">
+            <h1 className="text-[1rem] lg:text-[1.8rem] xl:text-[2rem] uppercase">
+              project
+            </h1>
+            <h1 className="text-[1.5rem] lg:text-[4rem] xl:text-[5rem]">
+              0{activeRepo + 1}
+            </h1>
           </div>
 
-          {/* left side */}
-          <div className="flex flex-col gap-[20px]">
+          {/* image */}
+          <div className="flex flex-col gap-[20px] ">
             <div className="lg:w-[400px] xl:w-[500px] lg:h-[250px] xl:h-[300px] w-[250px] h-[150px] relative rounded-[20px] bg-white overflow-hidden z-20">
               <img src={`${dataRepo[activeRepo].img}`} className="w-full" />
               <p className="absolute bottom-0 z-50 bg-zinc-800 text-[#ffffff83] text-[.7rem] lg:text-[1rem] text-center font-impact font-bold italic w-full lg:py-[5px] py-[2px]">
@@ -111,8 +137,8 @@ export default function Repo() {
             </div>
           </div>
 
-          {/* right side */}
-          <div className="flex flex-col gap-[10px] justify-center flex-wrap text-[.7rem] lg:text-xl">
+          {/* detail */}
+          <div className="flex flex-col gap-[10px] justify-center flex-wrap text-[.7rem] lg:text-[1rem] xl:text-xl">
             {/* tag */}
             <div className="flex !justify-start gap-[20px] font-outfit">
               {dataRepo[activeRepo].tag.map((i, idx) => {
@@ -140,24 +166,19 @@ export default function Repo() {
               </Link>
             </div>
           </div>
-        </div>
 
-        {/* navigasi */}
-        <nav className="flex justify-center pt-[30px] gap-[10px]">
-          {dataRepo.map((i, idx) => {
-            return (
-              <button
-                key={idx}
-                onClick={() => setactiveRepo(idx)}
-                className={`w-[20px] h-[20px]  rounded-full border-[4px] ${
-                  activeRepo === idx
-                    ? "border-zinc-500 bg-[#BBFF1A]"
-                    : "border-black bg-slate-600"
-                } `}
-              ></button>
-            );
-          })}
-        </nav>
+          {/* tech stack */}
+          <div className="absolute bottom-0 right-0">
+            <div className="bg-slate-950 py-3 px-[30px] border-[1px] border-r-0 border-slate-400 rounded-tl-[10px] rounded-bl-[10px] flex gap-[30px]">
+              {dataRepo[activeRepo].teachStack.map((i, idx) => {
+                return <img src={`${i}.svg`} key={idx} className="w-7" />;
+              })}
+            </div>
+            <p className="text-center font-medium text-sm text-gray-500">
+              teach stack
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

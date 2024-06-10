@@ -80,7 +80,7 @@ export default function Home() {
       </div>
 
       {/* navbar */}
-      <div
+      <nav
         className={`absolute z-50 right-[-5px] bottom-5 flex flex-col justify-center gap-[10px] bg-black md:py-[10px] md:px-[5px] py-[5px] px-[3px] rounded-[5px] border-[2px] border-slate-600 ${
           dialog ? "shadow-[0_0px_50px_rgba(255,_255,_255,_0.8)]" : ""
         }`}
@@ -91,10 +91,11 @@ export default function Home() {
             className={` active:opacity-50 w-[15px]`}
             alt=""
             onClick={() => {
-              if(section === 0){
-                return
+              if (section === 0) {
+                return;
               }
-              setSection(section - 1)}}
+              setSection(section - 1);
+            }}
           />
         </button>
         <ul className="text-center h-[35px]">
@@ -115,7 +116,7 @@ export default function Home() {
             }}
           />
         </button>
-      </div>
+      </nav>
 
       {/* main */}
       <main
@@ -134,6 +135,10 @@ export default function Home() {
         {/* contact */}
         <Contact />
       </main>
+
+      <footer className="bg-slate-950 text-[#BBFF1A] text-center fixed bottom-0 w-full py-1 text-[.8rem]">
+        <p className="font">dika - dev</p>
+      </footer>
     </div>
   );
 }

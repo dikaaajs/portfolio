@@ -3,7 +3,7 @@ import React from "react";
 export default function Contact() {
   return (
     <div className="h-screen relative">
-      <div className="pt-[50px] pl-[20px] flex gap-[10px] items-center text-white">
+      <div className="absolute top-[50px] left-[20px] flex gap-[10px] items-center text-white">
         <img src="/main-kiriatas.svg" alt="" />
         <h1 className={`font-outfit font-medium text-[1.3rem] text-black`}>
           Contact.js
