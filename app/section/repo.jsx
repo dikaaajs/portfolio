@@ -93,6 +93,15 @@ export default function Repo() {
         </h1>
       </div>
 
+      {/* garis pinggir */}
+      <img
+        src="/LINE.svg"
+        alt=""
+        className={`absolute right-6 top-1/2 duration-300 ease-out h-[100hv] z-50 ${
+          move ? "-translate-y-1/2" : "-translate-y-[500px]"
+        }`}
+      />
+
       {/* absolute */}
       <img
         src="/LINE-white.svg"
@@ -103,7 +112,9 @@ export default function Repo() {
       />
       <img
         src="/Vector 2 (1).svg"
-        className="opacity-70 absolute lg:left-[-100px] lg:bottom-[80px] xl:bottom-[100px] left-[-40px] bottom-0 z-10 lg:w-fit lg:h-[350px] h-[250px] xl:h-[500px]"
+        className={`duration-300 opacity-70 absolute lg:left-[-100px] lg:bottom-[80px] xl:bottom-[100px] left-[-40px] bottom-0 z-10 lg:w-fit lg:h-[350px] h-[250px] xl:h-[500px]  ${
+          move ? "translate-x-0" : "-translate-x-[800px]"
+        }`}
       />
 
       {/* navigasi */}
@@ -127,7 +138,11 @@ export default function Repo() {
         {/* repository */}
         <div className="flex gap-[20px] lg:mt-[10%] lg:mx-[100px] mx-[40px] mt-[60px]">
           {/* nomor */}
-          <div className="absolute font-impact font-extrabold lg:right-[100px] lg:top-[-100px] top-[0px] right-[0px] lg:leading-[45px] xl:leading-[60px] leading-[30px] text-right">
+          <div
+            className={`duration-300 absolute font-impact font-extrabold lg:right-[100px] lg:top-[-100px] top-[0px] right-[0px] lg:leading-[45px] xl:leading-[60px] leading-[30px] text-right  ${
+              move ? "translate-x-0" : "translate-x-[800px]"
+            }`}
+          >
             <h1 className="text-[1rem] lg:text-[1.8rem] xl:text-[2rem] uppercase">
               project
             </h1>
@@ -137,8 +152,23 @@ export default function Repo() {
           </div>
 
           {/* image */}
-          <div className="flex flex-col gap-[20px] ">
-            <div className="lg:w-[400px] xl:w-[500px] lg:h-[250px] xl:h-[300px] w-[250px] h-[150px] relative rounded-[20px] bg-white overflow-hidden z-20">
+          <div
+            className={`flex flex-col gap-[20px] duration-500 z-50 ${
+              move ? "scale-100" : "scale-50"
+            }`}
+          >
+            <div className="lg:w-[400px] xl:w-[500px] lg:h-[250px] xl:h-[300px] w-[250px] h-[150px] relative rounded-md bg-white overflow-hidden z-20">
+              <div className="absolute flex gap-3 bg-black bg-opacity-50 left-3 top-3 py-[5px] px-[10px] rounded-md">
+                {dataRepo[activeRepo].teachStack.map((i, idx) => {
+                  return (
+                    <img
+                      src={`/tech-stack/${i}.svg`}
+                      key={idx}
+                      className="w-5"
+                    />
+                  );
+                })}
+              </div>
               <img src={`${dataRepo[activeRepo].img}`} className="w-full" />
               <p className="absolute bottom-0 z-50 bg-zinc-800 text-[#ffffff83] text-[.7rem] lg:text-[1rem] text-center font-impact font-bold italic w-full lg:py-[5px] py-[2px]">
                 {dataRepo[activeRepo].headline}
@@ -153,7 +183,7 @@ export default function Repo() {
               {dataRepo[activeRepo].tag.map((i, idx) => {
                 return (
                   <p
-                    className="py-[8px] px-[12px] bg-black text-white rounded-[9px]"
+                    className="py-[4px] px-[12px] text-[.8rem] bg-black text-white rounded-md"
                     key={idx}
                   >
                     {i}
@@ -164,7 +194,9 @@ export default function Repo() {
 
             {/* desk */}
             <div className="flex flex-col gap-5">
-              <p className="font-medium">{dataRepo[activeRepo].p}</p>
+              <p className="font-medium font-outfit text-[.9rem] text-opacity-50">
+                {dataRepo[activeRepo].p}
+              </p>
               <Link
                 href={dataRepo[activeRepo].repo}
                 target="_blank"
@@ -177,7 +209,7 @@ export default function Repo() {
           </div>
 
           {/* tech stack */}
-          <div className="absolute bottom-0 right-0">
+          {/* <div className="absolute bottom-0 right-0">
             <div className="bg-slate-950 py-3 px-[30px] border-[1px] border-r-0 border-slate-400 rounded-tl-[10px] rounded-bl-[10px] flex gap-[30px]">
               {dataRepo[activeRepo].teachStack.map((i, idx) => {
                 return <img src={`${i}.svg`} key={idx} className="w-7" />;
@@ -186,7 +218,7 @@ export default function Repo() {
             <p className="text-center font-medium text-sm text-gray-500">
               teach stack
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

@@ -49,3 +49,7 @@
 .list-about-active {
     @apply !border-blue-500
 }
+
+.text-stroke-3 {
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.887), 1px -1px 0 rgba(0, 0, 0, 0.887), -1px 1px 0 rgba(0, 0, 0, 0.887), 1px 1px 0 rgba(0, 0, 0, 0.887);
+}

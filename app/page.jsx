@@ -5,6 +5,9 @@ import Main from "./section/main";
 import About from "./section/about";
 import Repo from "./section/repo";
 import Contact from "./section/contact";
+import Tutorial from "./components/Tutorial";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 export default function Home() {
   const [move, setMove] = useState(false);
@@ -53,71 +56,11 @@ export default function Home() {
         </div>
       )}
 
-      {/* dialog */}
-      <div
-        className={`absolute h-screen w-screen z-50 bg-[#1f1f1fd2] ${
-          dialog && !warning ? "" : "hidden"
-        }`}
-      >
-        <div className="w-[300px] bg-white py-[15px] px-[20px] rounded-md absolute bottom-10 right-[150px]">
-          <div className="flex gap-[10px] font-outfit items-center">
-            <img src="/hengker.png" alt="" className="rounded-full h-[30px]" />
-            <h1 className="font-[500]">hengker</h1>
-          </div>
-          <div className="">
-            <p className="py-[10px] font-mono text-[.8rem]">
-              you can click here to move !
-            </p>
-            <button
-              className="py-[5px] px-[10px] bg-blue-500 text-white rounded-lg font-outfit font-[500] text-[.8rem] block ml-auto"
-              onClick={() => {
-                setDialog(false);
-              }}
-            >
-              alright
-            </button>
-          </div>
-        </div>
-      </div>
+      {/* tutorial */}
+      <Tutorial dialog={dialog} warning={warning} setDialog={setDialog} />
 
       {/* navbar */}
-      <nav
-        className={`absolute z-50 right-[-5px] bottom-5 flex flex-col justify-center gap-[10px] bg-black md:py-[10px] md:px-[5px] py-[5px] px-[3px] rounded-[5px] border-[2px] border-slate-600 ${
-          dialog ? "shadow-[0_0px_50px_rgba(255,_255,_255,_0.8)]" : ""
-        }`}
-      >
-        <button className="w-fit mx-auto">
-          <img
-            src="/arrow-nav.png"
-            className={` active:opacity-50 w-[15px]`}
-            alt=""
-            onClick={() => {
-              if (section === 0) {
-                return;
-              }
-              setSection(section - 1);
-            }}
-          />
-        </button>
-        <ul className="text-center h-[35px]">
-          <li className="text-[#BBFF1A] font-impact font-bold text-[1.2rem] md:text-[1.4rem]">
-            0{section + 1}
-          </li>
-        </ul>
-        <button className="w-fit mx-auto">
-          <img
-            src="/arrow-nav.png"
-            className={` rotate-180 active:opacity-50 w-[15px]`}
-            alt=""
-            onClick={() => {
-              if (section === 3) {
-                return;
-              }
-              setSection(section + 1);
-            }}
-          />
-        </button>
-      </nav>
+      <Navbar setSection={setSection} dialog={dialog} section={section} />
 
       {/* main */}
       <main
@@ -137,9 +80,7 @@ export default function Home() {
         <Contact />
       </main>
 
-      <footer className="bg-slate-950 text-[#BBFF1A] text-center fixed bottom-0 w-full py-1 text-[.8rem]">
-        <p className="font">dika - dev</p>
-      </footer>
+      <Footer />
     </div>
   );
 }

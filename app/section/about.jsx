@@ -1,10 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import KiriAtas from "../components/KiriAtas";
 
 export default function About() {
-  const [fukaDialog, setFukaDialog] = useState(true);
-  const [dialogPick, setDialogPick] = useState(0);
   const [move, setMove] = useState(false);
   const aboutRef = useRef();
 
@@ -26,91 +25,83 @@ export default function About() {
   }, []);
 
   return (
-    <section className="h-screen bg-black relative" ref={aboutRef}>
+    <section className="h-screen relative" ref={aboutRef}>
       {/* headline */}
-      <div className="top-[50px] left-[20px] absolute flex gap-[10px] items-center text-white z-50">
-        <img src="/putih-kiriatas.svg" alt="" />
-        <h1 className={`font-outfit font-medium text-[1.3rem] text-white`}>
-          About.js
-        </h1>
-      </div>
+      <KiriAtas text="About.js" move={move} />
 
-      <div className="h-[89%] w-full bg-white relative top-1/2 -translate-y-1/2">
-        {/* background */}
-        <img
-          src="about/bg.jpg"
-          className="w-full h-full absolute z-10"
-          alt="background persona dialog"
-        />
+      {/* garis pinggir */}
+      <img
+        src="/LINE.svg"
+        alt=""
+        className={`absolute right-6 top-1/2 duration-300 ease-out h-[100hv] ${
+          move ? "-translate-y-1/2" : "-translate-y-[500px]"
+        }`}
+      />
 
-        {/* fuka dialog */}
-        <div className={`w-[30%] h-full relative ml-auto delay-200`}>
-          <img
-            src="about/fuka.png"
-            className={`absolute right-0 bottom-0 duration-300 z-20 ${
-              !move ? "translate-x-[100%]" : "translate-x-0"
-            }`}
-            alt=""
-          />
+      <img
+        src="/about-kiri-bawah.svg"
+        className={`absolute bottom-14 left-1/2 -translate-x-1/2 duration-300 ${
+          move ? "translate-y-0 opacity-100" : "translate-y-[100px] opacity-0"
+        }`}
+      />
 
-          {/* options */}
-          <button>
-            <img
-              src="about/option 1.svg"
-              className={`absolute bottom-[10%] -left-[90%] z-20 hover:scale-105 duration-300 ${
-                !move ? "scale-50 opacity-0" : "scale-100 opacity-100"
-              }`}
-              onClick={() => {
-                setFukaDialog(!fukaDialog);
-                setMove(false);
-                setDialogPick(1);
-              }}
-            />
-          </button>
-          <button>
-            <img
-              src="about/option 2.svg"
-              className={`absolute bottom-[17%] scale-75 -left-[80%] z-10 hover:scale-90 duration-300 ${
-                !move ? "scale-50 opacity-0" : "scale-75 opacity-100"
-              }`}
-              onClick={() => {
-                setFukaDialog(!fukaDialog);
-                setMove(false);
-                setDialogPick(2);
-              }}
-            />
-          </button>
-        </div>
-
-        {/* dialog gwe */}
-
-        <div
-          onClick={() => {
-            setFukaDialog(true);
-            setDialogPick(0);
-            setMove(true);
-          }}
-          className={`cursor-pointer w-full h-full z-50 duration-200 ${
-            !fukaDialog ? "opacity-100" : "opacity-0"
+      <div className="top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 absolute w-[70%]">
+        <h1
+          className={`mx-auto w-[80%] py-[50px] text-center font-montserrat font-extrabold text-[5rem] text-slate-950 leading-8 md:leading-6 duration-700 ${
+            move ? "scale-100" : "scale-0"
           }`}
         >
-          <p className="text-white z-50 absolute bottom-2 left-1/2 -translate-x-1/2 text-center font-nato-sans">
-            tap anywhere to continue
-          </p>
+          Tech Stack
+        </h1>
 
-          <img
-            src="about/dialog2.svg"
-            className={`w-[80%] absolute bottom-3 left-1/2 -translate-x-1/2 z-20 duration-300 ${
-              dialogPick == 2 ? "opacity-100" : "opacity-0"
-            } ${!fukaDialog ? "scale-100" : "scale-0"} `}
-          />
-          <img
-            src="about/dialog1.svg"
-            className={`w-[80%] absolute bottom-3 left-1/2 -translate-x-1/2 z-20 duration-300 ${
-              dialogPick == 1 ? "opacity-100" : "opacity-0"
-            } ${!fukaDialog ? "scale-100" : "scale-0"} `}
-            alt=""
-          />
+        <div className="grid grid-cols-2 gap-7">
+          {/* frontend */}
+          <div
+            className={`bg-black rounded-md px-5 py-5 duration-300 ease-out ${
+              move ? "-translate-x-[0px]" : "-translate-x-[1000px]"
+            }`}
+          >
+            <h5 className="text-white text-montserrat">frontend :</h5>
+            <div className="flex gap-5 py-[20px] items-center">
+              <img src="/tech-stack/tailwind.svg" className="w-[30px]" alt="" />
+              <img src="/tech-stack/nextjs.svg" className="w-[30px]" alt="" />
+              <img src="/tech-stack/react.svg" className="w-[30px]" alt="" />
+              <img src="/tech-stack/laravel.png" className="w-[30px]" alt="" />
+            </div>
+          </div>
+
+          {/* backend */}
+          <div
+            className={`bg-black rounded-md px-5 py-5 duration-500 ease-out ${
+              move ? "-translate-x-[0px]" : "-translate-x-[1500px]"
+            }`}
+          >
+            <h5 className="text-white text-montserrat">backend :</h5>
+            <div className="flex gap-5 py-[20px] items-center">
+              <img src="/tech-stack/nextjs.svg" className="w-[30px]" alt="" />
+              <img
+                src="/tech-stack/express-js.png"
+                className="w-[30px]"
+                alt=""
+              />
+              <img src="/tech-stack/mongodb.svg" className="w-[30px]" alt="" />
+              <img src="/tech-stack/laravel.png" className="w-[30px]" alt="" />
+            </div>
+          </div>
+        </div>
+
+        <div
+          className={`w-full rounded-md bg-black py-5 px-5 mt-[50px] duration-500 ${
+            move ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <h5 className="text-white text-montserrat text-center text-[1.5rem] font-bold">
+            about me
+          </h5>
+          <p className="text-white text-outfit text-opacity-50">
+            Hi i'm andika. I am a web developer. Looking for opportunities to
+            develop and grow in a Technology Company.
+          </p>
         </div>
       </div>
     </section>
