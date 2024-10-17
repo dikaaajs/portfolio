@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <div className=" overflow-hidden relative h-screen">
       {/* phone detector */}
-      {warning && (
+      {/* {warning && (
         <div className="w-full h-full fixed backdrop-blur-sm bg-white/30 z-40 inset-0">
           <div className="fixed w-[90%] py-[70px] md:w-[50%] bg-white rounded-md top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 backdrop-brightness-50">
             <h1 className="text-black font-impact uppercase font-bold text-[1.5rem] text-center">
@@ -54,7 +54,7 @@ export default function Home() {
             </a>
           </div>
         </div>
-      )}
+      )} */}
 
       {/* tutorial */}
       <Tutorial dialog={dialog} warning={warning} setDialog={setDialog} />
