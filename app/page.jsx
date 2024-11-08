@@ -30,6 +30,7 @@ export default function Home() {
     const lebar = window.innerWidth;
     if (lebar < 768) {
       setWarning(true);
+      window.location.href = "https://dikaaajs.github.io/";
     }
   }, []);
 
